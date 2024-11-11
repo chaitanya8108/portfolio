@@ -8,6 +8,7 @@ import todo from "../assets/todo.png";
 import prop from "../assets/prop.png";
 import bg from "../assets/proj.jpeg";
 import portfolio from "../assets/portfolio.png";
+import { GoArrowUpRight } from "react-icons/go";
 
 const Projects = () => {
   const [lgShow, setLgShow] = useState(false);
@@ -18,10 +19,18 @@ const Projects = () => {
   // Define project data with respective screenshots
   const projects = [
     {
+      title: "Portfolio",
+      description: "This is a dummy portfolio website",
+      link: "https://portfolio-76bnmzb93-chaitanya-sharmas-projects-026fef5f.vercel.app/",
+      gitHub: "https://github.com/chaitanya8108/portfolio",
+      image: portfolio,
+    },
+    {
       title: "Rock Paper Scissors",
       description:
         "An Interactive Rock-Paper-Scissor Game Developed using HTML, CSS, JavaScript. A Browser Local Storage connection is there.",
       link: "https://rock-paper-scissor-ten-dusky.vercel.app/",
+      gitHub: "https://github.com/chaitanya8108/Rock-Paper-Scissor",
       image: rps,
     },
     {
@@ -29,6 +38,7 @@ const Projects = () => {
       description:
         "A To Do List Site that notes down your provided Tasks. Having Functionality of Add, Delete, Edit, Reset Tasks. Local Storage set up for storing the Tasks on browser.",
       link: "https://to-do-list-sigma-seven-61.vercel.app/",
+      gitHub: "https://github.com/chaitanya8108/To-Do-List",
       image: todo,
     },
     {
@@ -36,13 +46,8 @@ const Projects = () => {
       description:
         "This project shows how you can send the data from one component to another using props.",
       link: "https://react-props-use.vercel.app/",
+      gitHub: "https://github.com/chaitanya8108/react-props-use",
       image: prop,
-    },
-    {
-      title: "Portfolio",
-      description: "This is a dummy portfolio website",
-      link: "https://portfolio-76bnmzb93-chaitanya-sharmas-projects-026fef5f.vercel.app/",
-      image: portfolio,
     },
   ];
 
@@ -108,17 +113,28 @@ const Projects = () => {
             <div key={index} className="project">
               <h3>{project.title}</h3>
               <p className="text-start">{project.description}</p>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                id="viewProject"
-              >
-                View Project
-              </a>
-              <a onClick={() => handleShowModal(project.image)} id="modal">
-                Screenshot
-              </a>
+              <div id="redirectbtns">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="viewProject"
+                >
+                  View Project
+                </a>
+                <a onClick={() => handleShowModal(project.image)} id="modal">
+                  Screenshot
+                </a>
+                <a
+                  href={project.gitHub}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="github"
+                >
+                  GitHub
+                  <GoArrowUpRight />
+                </a>
+              </div>
             </div>
           ))}
         </div>
