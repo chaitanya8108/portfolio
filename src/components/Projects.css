@@ -1,0 +1,109 @@
+#projects {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.6s ease, opacity 0.6s ease; /* Smooth transition for transform and opacity */
+  height: 100vh;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+  margin-top: 0;
+  padding-bottom: 6rem;
+  /* opacity: 0;  */
+  /* transform: translateY(20px);  */
+  transition: transform 0.3s;
+}
+
+#projects.in-view {
+  /* opacity: 1;
+  transform: translateY(0);  */
+  box-shadow: 0 5px 20px lightgray;
+  transform: scale(0.99); 
+  border-radius: 100px;
+}
+
+
+
+
+/* #projects:hover{ */
+  /* box-shadow: 0 5px 20px lightgray; */
+  /* transform: scale(0.99);  */
+  /* border-radius: 100px; */
+  /* opacity: 0.5; */
+/* } */
+
+.project {
+  margin-bottom: 20px;
+  padding: 15px;
+  /* border: 1px solid #ddd; */
+  border-radius: 5px; /* Rounded corners */
+  transition: transform 0.3s;
+  /* width: 90%; */
+  margin-top: 2rem;
+  align-self: center;
+}
+
+.project:hover {
+  transform: scale(1.02); /* Slightly scale up on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  /* cursor: pointer; */
+  border: 1px solid lightgray;
+  /* opacity: 1.5; */
+}
+
+#viewProject {
+  text-decoration: none;
+  background-color: whitesmoke;
+  padding: 0.5rem;
+  color: black;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+#viewProject:hover {
+  transform: scale(1.02); /* Slightly scale up on hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  background-color: lightgray;
+}
+
+#modal {
+  text-decoration: none;
+  background-color: whitesmoke;
+  padding: 0.5rem;
+  color: black;
+  border-radius: 10px;
+  margin-left: 1rem;
+  overflow: scroll;
+}
+
+#modal:hover {
+  transform: scale(1.02); /* Slightly scale up on hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+#modalBody {
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+#proj{
+  padding-top: 8rem;
+
+}
+/* #projDiv{
+  min-width: 100vw;
+} */
+
+@media (max-width: 768px) {
+ 
+  .project:hover {
+    transform: scale(1.02); /* Slightly scale up on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+    cursor: pointer;
+  }
+  #projDiv{
+    padding-right: 0;
+  }
+}

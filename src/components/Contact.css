@@ -1,0 +1,88 @@
+#contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  padding: 2rem;
+  /* border-collapse: separate; */
+  margin-bottom: 2rem;
+}
+
+#contact.in-view {
+  /* opacity: 1;
+  transform: translateY(0);  */
+  box-shadow: 0 5px 20px lightgray;
+  transform: scale(0.99); 
+  border-radius: 100px;
+}
+
+/* #contact:hover {
+  box-shadow: 0 5px 20px lightgray;
+  transform: scale(0.99); 
+  border-radius: 100px;
+} */
+
+form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  line-height: 2rem;
+  padding: 1rem;
+}
+
+input {
+  border-radius: 10px;
+  min-width: 25svw;
+  border: 0.5px solid gray;
+  background-color: lightgray;
+  transition: transform 0.3s;
+}
+
+input:hover {
+  box-shadow: 10px 20px 35px black;
+  border: 0.5px solid black;
+  transform: scale(1.02); /* Slightly scale up on hover */
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  */
+  cursor: text;
+}
+
+textarea {
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+textarea:hover {
+  box-shadow: 10px 20px 35px black;
+  border: 0.5px solid black;
+  transform: scale(1.02); /* Slightly scale up on hover */
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  */
+  cursor: text;
+}
+
+#sendMsg {
+  /* min-width: 5rem; */
+  min-width: 10rem;
+  align-self: center;
+  margin-top: 1rem;
+}
+
+#sendMsg:hover{
+  background-color: #fff;
+  color: black;
+}
+
+#nameDiv {
+  margin-bottom: 2rem;
+}
+
+#emailDiv {
+  margin-bottom: 2rem;
+}
+label{
+  color: black;
+}
+@media (max-width: 768px) {
+}

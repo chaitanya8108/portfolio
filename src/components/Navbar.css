@@ -1,0 +1,134 @@
+/* Navbar styles */
+
+.navbtn {
+  background-color: black;
+  border-color: black;
+}
+
+.navbtn:hover {
+  color: black;
+  background-color: white;
+}
+
+nav {
+  background-color: black;
+  display: flex;
+  justify-content: space-between; /* Ensures logo is on the left and menu is on the right */
+  align-items: center;
+  /* padding: 10px 20px; */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box; /* Include padding in the width */
+  /* border-bottom: 1px solid lightgray; */
+}
+
+nav img {
+  width: 60px; /* Adjust size of the logo */
+  height: auto;
+  /* background-color: white;
+  border-radius: 50%; */
+  
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  align-items: center;
+  margin: 0;
+  transition: all 0.3s ease; /* Smooth transition for showing/hiding the menu */
+  opacity: 1; /* Make sure the menu is visible by default */
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+
+nav .menu-toggle {
+  display: none; /* Hide menu toggle by default (for large screens) */
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: auto; /* Push the hamburger to the far right */
+}
+
+nav .menu-toggle span {
+  width: 30px; /* Increased width for better cross */
+  height: 4px; /* Increased height for better visibility */
+  margin: 5px 0; /* Added spacing between bars */
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+/* When the menu is active, animate the bars (change to a cross icon) */
+nav.active .menu-toggle span:nth-child(1) {
+  transform: rotate(45deg) translateY(9px); /* Adjusted position for a better cross */
+}
+
+nav.active .menu-toggle span:nth-child(2) {
+  opacity: 0; /* Hide the middle bar */
+}
+
+nav.active .menu-toggle span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-9px); /* Adjusted position for a better cross */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+    /* padding: 15px;  */
+  }
+
+  nav ul {
+    display: none; /* Hide the menu by default on small screens */
+    width: 100%;
+    margin-top: 10px;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(-20px); /* Start off above the screen */
+    position: absolute; /* Position the menu relative to the navbar */
+    top: 100%; /* Push it below the navbar */
+    left: 0;
+    background-color: white; /* Make sure the dropdown has a white background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for visibility */
+    z-index: 999; /* Ensure the menu stays above other elements */
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: left;
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* When the navbar is active (i.e., the hamburger is clicked), display the menu */
+  nav.active ul {
+    display: flex; /* Display the menu */
+    opacity: 1;
+    transform: translateY(0); /* Slide the menu into view */
+  }
+
+  nav .menu-toggle {
+    display: flex; 
+    /* align-items: center; */
+    /* justify-content: center; */
+    min-width: 5rem;
+    margin-right: 50vw;
+  }
+
+  span {
+    min-width: 10px;
+  }
+}
