@@ -7,6 +7,7 @@ import rps from "../assets/rps.png";
 import todo from "../assets/todo.png";
 import prop from "../assets/prop.png";
 import bg from "../assets/proj.jpeg";
+import portfolio from "../assets/portfolio.png";
 
 const Projects = () => {
   const [lgShow, setLgShow] = useState(false);
@@ -37,6 +38,12 @@ const Projects = () => {
       link: "https://react-props-use.vercel.app/",
       image: prop,
     },
+    {
+      title: "Portfolio",
+      description: "This is a dummy portfolio website",
+      link: "https://portfolio-one-eta-88.vercel.app/",
+      image: portfolio,
+    },
   ];
 
   // Handle showing modal
@@ -49,7 +56,7 @@ const Projects = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             // Add 'in-view' class to animate when the section is in view
             entry.target.classList.add("in-view");
