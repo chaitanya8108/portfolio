@@ -12,6 +12,7 @@
   margin-bottom: 1rem;
   /* background-size: cover;
     background-position: center; */
+    /* line-height: 5rem; */
 }
 
 #home.in-view {
@@ -78,8 +79,34 @@ p {
   border: none;
 }
 
+#icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  /* margin: 3rem; */
+  width: 40%;
+}
+
+#ref {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 10rem;
+  width: 50%;
+}
+
 @media (max-width: 768px){
     p{
         text-wrap: balance;
+    }
+    #ref{
+      line-height: 3rem;
+      width: 90vw;
+    }
+    #icons{
+      width: 80%;
     }
 }

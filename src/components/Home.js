@@ -5,6 +5,15 @@ import bg from "../assets/bg.jpeg";
 import { Button, Modal } from "react-bootstrap";
 import { GoArrowUpRight } from "react-icons/go";
 import { useState, useEffect, useRef } from "react";
+import {
+  FaReact,
+  FaBootstrap,
+  FaCss3,
+  FaNodeJs,
+  FaJs,
+  FaJava,
+} from "react-icons/fa";
+import { BiLogoMongodb, BiLogoSpringBoot } from "react-icons/bi";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -60,19 +69,26 @@ const Home = () => {
         <p>Hi, I'm Chaitanya Sharma, a Front End Developer.</p>
         <p>Explore my work and feel free to get in touch!</p>
       </div>
-      <div id="resume">
-        <Button id="resumebtn" onClick={handleShow}>
-          Resume <GoArrowUpRight />
-        </Button>
+      <div id="ref">
+        <div id="resume">
+          <Button id="resumebtn" onClick={handleShow}>
+            Resume <GoArrowUpRight />
+          </Button>
+        </div><br></br>
+        <div id="icons">
+          <FaReact />
+          <FaBootstrap />
+          <FaCss3 />
+          <FaNodeJs />
+          <FaJs />
+          <BiLogoMongodb />
+          <BiLogoSpringBoot />
+          <FaJava />
+        </div>
       </div>
 
       {/* Modal for displaying the resume */}
-      <Modal
-        show={showModal}
-        onHide={handleClose}
-        centered
-        size="xl"
-      >
+      <Modal show={showModal} onHide={handleClose} centered size="xl">
         <Modal.Header closeButton>
           <Modal.Title>My Resume</Modal.Title>
         </Modal.Header>
