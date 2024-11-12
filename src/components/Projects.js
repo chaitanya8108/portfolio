@@ -21,7 +21,7 @@ const Projects = () => {
     {
       title: "Portfolio",
       description: "This is a dummy portfolio website",
-      link: "https://portfolio-76bnmzb93-chaitanya-sharmas-projects-026fef5f.vercel.app/",
+      link: "https://portfolio-one-eta-88.vercel.app/",
       gitHub: "https://github.com/chaitanya8108/portfolio",
       image: portfolio,
     },
