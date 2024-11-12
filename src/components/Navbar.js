@@ -8,9 +8,9 @@ const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);
   const [rotation, setRotation] = useState(0); // State to store rotation value
 
-  const toggleMenu = () => {
-    setMenuActive(!menuActive);
-  };
+  // const toggleMenu = () => {
+  //   setMenuActive(!menuActive);
+  // };
 
   const needleRotation = () => {
     // Generate a random rotation angle between -360 and 360 degrees

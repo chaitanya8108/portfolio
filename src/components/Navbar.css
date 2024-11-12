@@ -29,7 +29,9 @@ nav img {
   height: auto;
   /* background-color: white;
   border-radius: 50%; */
-  
+}
+nav img:hover {
+  cursor: pointer;
 }
 
 nav ul {
@@ -82,7 +84,7 @@ nav.active .menu-toggle span:nth-child(3) {
 @media (max-width: 768px) {
   nav {
     flex-direction: row;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     /* padding: 15px;  */
   }
@@ -121,7 +123,7 @@ nav.active .menu-toggle span:nth-child(3) {
   }
 
   nav .menu-toggle {
-    display: flex; 
+    display: flex;
     /* align-items: center; */
     /* justify-content: center; */
     min-width: 5rem;
