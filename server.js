@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -34,10 +34,12 @@ const Project = mongoose.model("Project", projectSchema);
 // Endpoint to fetch all projects
 app.get("/projects", async (req, res) => {
   try {
+    console.log("Fetching projects from MongoDB...");
     const projects = await Project.find();
+    console.log("Fetched projects:", projects); // Log fetched projects
     res.json(projects);
   } catch (error) {
-    console.error("Error fetching projects:", error);
+    console.error("Error fetching projects:", error); // Log any errors
     res.status(500).send("Server Error");
   }
 });
