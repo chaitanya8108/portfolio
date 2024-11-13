@@ -1,18 +1,19 @@
+require('dotenv').config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
-app.use(cors({ origin: "http://localhost:3000" }));
+
+// Enable CORS with the client URL from the .env file
+app.use(cors({ origin: process.env.CLIENT_URL }));
 
 app.use(express.json());
 
-// Connect to MongoDB
+// Connect to MongoDB using the connection string from the .env file
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.error("MongoDB connection error:", error));
 
@@ -26,7 +27,7 @@ const projectSchema = new mongoose.Schema(
     image: String,
   },
   { collection: "projects" }
-); // Explicitly specify collection name
+);
 
 const Project = mongoose.model("Project", projectSchema);
 
@@ -34,7 +35,6 @@ const Project = mongoose.model("Project", projectSchema);
 app.get("/projects", async (req, res) => {
   try {
     const projects = await Project.find();
-    console.log("Projects found:", projects); // Log the fetched projects
     res.json(projects);
   } catch (error) {
     console.error("Error fetching projects:", error);
@@ -43,7 +43,7 @@ app.get("/projects", async (req, res) => {
 });
 
 // Start the server
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
