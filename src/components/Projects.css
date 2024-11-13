@@ -11,6 +11,7 @@
   /* opacity: 0;  */
   /* transform: translateY(20px);  */
   transition: transform 0.3s;
+  padding-top: 6rem;
 }
 
 #projects.in-view {
@@ -92,9 +93,12 @@
   padding-top: 8rem;
 
 }
-/* #projDiv{
-  min-width: 100vw;
-} */
+#projDiv{
+  /* min-width: 100vw; */
+  overflow: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
 #github{
   margin-left: 1rem;
   text-decoration: none;

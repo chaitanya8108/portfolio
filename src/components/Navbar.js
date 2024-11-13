@@ -36,7 +36,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="proj" smooth={true} duration={50}>
+          <Link to="projects" smooth={true} duration={50}>
             <Button className="navbtn">Projects</Button>
           </Link>
         </li>

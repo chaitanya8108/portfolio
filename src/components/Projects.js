@@ -1,69 +1,20 @@
-// src/components/Projects.js
-
 import React, { useState, useEffect, useRef } from "react";
 import "./Projects.css";
 import Modal from "react-bootstrap/Modal";
-import rps from "../assets/rps.png";
-import todo from "../assets/todo.png";
-import prop from "../assets/prop.png";
-import bg from "../assets/proj.jpeg";
-import portfolio from "../assets/portfolio.png";
 import { GoArrowUpRight } from "react-icons/go";
+import bg from "../assets/proj.jpeg";
 
 const Projects = () => {
+  const [projects, setProjects] = useState([]);
   const [lgShow, setLgShow] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const projRef = useRef(null); // Reference to #home section
 
-  const projectsRef = useRef(null); // Use ref to access #projects element
-
-  // Define project data with respective screenshots
-  const projects = [
-    {
-      title: "Portfolio",
-      description: "This is a dummy portfolio website",
-      link: "https://portfolio-one-eta-88.vercel.app/",
-      gitHub: "https://github.com/chaitanya8108/portfolio",
-      image: portfolio,
-    },
-    {
-      title: "Rock Paper Scissors",
-      description:
-        "An Interactive Rock-Paper-Scissor Game Developed using HTML, CSS, JavaScript. A Browser Local Storage connection is there.",
-      link: "https://rock-paper-scissor-ten-dusky.vercel.app/",
-      gitHub: "https://github.com/chaitanya8108/Rock-Paper-Scissor",
-      image: rps,
-    },
-    {
-      title: "Todo List",
-      description:
-        "A To Do List Site that notes down your provided Tasks. Having Functionality of Add, Delete, Edit, Reset Tasks. Local Storage set up for storing the Tasks on browser.",
-      link: "https://to-do-list-sigma-seven-61.vercel.app/",
-      gitHub: "https://github.com/chaitanya8108/To-Do-List",
-      image: todo,
-    },
-    {
-      title: "React-props-use",
-      description:
-        "This project shows how you can send the data from one component to another using props.",
-      link: "https://react-props-use.vercel.app/",
-      gitHub: "https://github.com/chaitanya8108/react-props-use",
-      image: prop,
-    },
-  ];
-
-  // Handle showing modal
-  const handleShowModal = (image) => {
-    setSelectedImage(image);
-    setLgShow(true);
-  };
-
-  // Intersection Observer to detect when #projects is in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Add 'in-view' class to animate when the section is in view
             entry.target.classList.add("in-view");
           } else {
             entry.target.classList.remove("in-view");
@@ -73,42 +24,55 @@ const Projects = () => {
       { threshold: 0.5 } // Trigger when 50% of the element is in view
     );
 
-    if (projectsRef.current) {
-      observer.observe(projectsRef.current);
+    if (projRef.current) {
+      observer.observe(projRef.current);
     }
 
     // Cleanup observer on unmount
     return () => {
-      if (projectsRef.current) {
-        observer.unobserve(projectsRef.current);
+      if (projRef.current) {
+        observer.unobserve(projRef.current);
       }
     };
   }, []);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/projects");
+        const data = await response.json();
+        console.log(data); // Log the fetched data to check its structure
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  // Frontend Code (React)
+  const handleShowModal = (image) => {
+    setSelectedImage(image); // Set the image path from MongoDB
+    setLgShow(true);
+  };
 
   return (
     <>
       <section
         id="projects"
-        ref={projectsRef} // Attach the ref here
         style={{
           backgroundImage: `url(${bg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          height: "100vh",
           color: "#fff",
         }}
+        ref={projRef}
       >
-        <h1 className="header align-self-center" id="proj">
-          Projects
-        </h1>
-        <div
-          style={{
-            overflowY: "scroll",
-            scrollbarWidth: "none",
-            scrollBehavior: "smooth",
-          }}
-          className="align-self-center px-3 "
-          id="projDiv"
-        >
+        {" "}
+        <h1 className="header align-self-center">Projects</h1>
+        <div className="align-self-center px-3" id="projDiv">
           {projects.map((project, index) => (
             <div key={index} className="project">
               <h3>{project.title}</h3>
@@ -154,7 +118,10 @@ const Projects = () => {
         </Modal.Header>
         <Modal.Body className="text-center img-fluid bg-black" id="modalBody">
           {selectedImage && (
-            <img src={selectedImage} alt="Project Screenshot" />
+            <img
+              src={`http://localhost:3000${selectedImage}`} // Use the correct path relative to the public folder
+              alt="Project Screenshot"
+            />
           )}
         </Modal.Body>
       </Modal>
