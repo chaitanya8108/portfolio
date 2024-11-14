@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Contact.css";
 import { Button, Alert } from "react-bootstrap";
 import bg from "../assets/contacts.jpeg";
@@ -9,6 +9,34 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(""); // To show success or error message
+  const contactRef = useRef(null); // Reference to #home section
+
+  // Intersection Observer for scroll animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          } else {
+            entry.target.classList.remove("in-view");
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% of the element is in view
+    );
+
+    if (contactRef.current) {
+      observer.observe(contactRef.current);
+    }
+
+    // Cleanup observer on unmount
+    return () => {
+      if (contactRef.current) {
+        observer.unobserve(contactRef.current);
+      }
+    };
+  }, []);
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -25,13 +53,16 @@ const Contact = () => {
 
     try {
       // Send POST request to Vercel serverless function
-      const response = await fetch("https://myportfolio-flax-three.vercel.app/api/send-message", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://myportfolio-flax-three.vercel.app/api/send-message",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       // Handle response
       if (response.ok) {
@@ -39,6 +70,10 @@ const Contact = () => {
         setName("");
         setEmail("");
         setMessage("");
+        // Message will be displayed for 2 seconds
+        setTimeout(() => {
+          setStatus("");
+        }, 2000);
       } else {
         const errorText = await response.text();
         setStatus(`Error: ${errorText}`);
@@ -58,6 +93,7 @@ const Contact = () => {
         height: "100vh",
         color: "#fff",
       }}
+      ref={contactRef} // Attach the ref to the #contact section
     >
       <h1 className="text-black">Contact Me</h1>
       <p className="text-black">

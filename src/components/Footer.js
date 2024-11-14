@@ -28,9 +28,9 @@ const Footer = () => {
             GitHub
           </a>
         </li>
-        <li>
+        {/* <li>
           <a href="mailto:chaitanya81082430@gmail.com">Email</a>
-        </li>
+        </li> */}
       </ul>
     </footer>
   );
