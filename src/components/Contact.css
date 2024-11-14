@@ -39,11 +39,12 @@ input {
   border: 0.5px solid gray;
   background-color: lightgray;
   transition: transform 0.3s;
+  outline: none;
 }
 
 input:hover {
   box-shadow: 10px 20px 35px black;
-  border: 0.5px solid black;
+  /* border: 0.5px solid black; */
   transform: scale(1.02); /* Slightly scale up on hover */
   /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  */
   cursor: text;
@@ -52,11 +53,12 @@ input:hover {
 textarea {
   border-radius: 10px;
   transition: transform 0.3s;
+  outline: none;
 }
 
 textarea:hover {
   box-shadow: 10px 20px 35px black;
-  border: 0.5px solid black;
+  /* border: 0.5px solid black; */
   transform: scale(1.02); /* Slightly scale up on hover */
   /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  */
   cursor: text;
