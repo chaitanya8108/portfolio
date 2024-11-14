@@ -8,7 +8,7 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [lgShow, setLgShow] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-  const projRef = useRef(null); // Reference to #home section
+  const projRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,14 +21,13 @@ const Projects = () => {
           }
         });
       },
-      { threshold: 0.5 } // Trigger when 50% of the element is in view
+      { threshold: 0.5 }
     );
 
     if (projRef.current) {
       observer.observe(projRef.current);
     }
 
-    // Cleanup observer on unmount
     return () => {
       if (projRef.current) {
         observer.unobserve(projRef.current);
@@ -39,9 +38,11 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("http://localhost:5000/projects");
+        const response = await fetch(
+          "https://myportfolio-five-psi-36.vercel.app/api/projects"
+        );
         const data = await response.json();
-        console.log(data); // Log the fetched data to check its structure
+        console.log(data);
         setProjects(data);
       } catch (error) {
         console.error("Error fetching projects:", error);
@@ -51,9 +52,8 @@ const Projects = () => {
     fetchProjects();
   }, []);
 
-  // Frontend Code (React)
   const handleShowModal = (image) => {
-    setSelectedImage(image); // Set the image path from MongoDB
+    setSelectedImage(image);
     setLgShow(true);
   };
 
@@ -70,7 +70,6 @@ const Projects = () => {
         }}
         ref={projRef}
       >
-        {" "}
         <h1 className="header align-self-center">Projects</h1>
         <div className="align-self-center px-3" id="projDiv">
           {projects.map((project, index) => (
@@ -119,7 +118,7 @@ const Projects = () => {
         <Modal.Body className="text-center img-fluid bg-black" id="modalBody">
           {selectedImage && (
             <img
-              src={`http://localhost:3000${selectedImage}`} // Use the correct path relative to the public folder
+              src={`https://<your-vercel-app-name>.vercel.app${selectedImage}`} // Updated to use the deployed URL
               alt="Project Screenshot"
             />
           )}
