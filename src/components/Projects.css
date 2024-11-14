@@ -18,18 +18,19 @@
   /* opacity: 1;
   transform: translateY(0);  */
   box-shadow: 0 5px 20px lightgray;
-  transform: scale(0.99); 
+  transform: scale(0.99);
   border-radius: 100px;
 }
 
-
-
+.hovEff {
+  transition: all ease-in-out 0.4s;
+}
 
 /* #projects:hover{ */
-  /* box-shadow: 0 5px 20px lightgray; */
-  /* transform: scale(0.99);  */
-  /* border-radius: 100px; */
-  /* opacity: 0.5; */
+/* box-shadow: 0 5px 20px lightgray; */
+/* transform: scale(0.99);  */
+/* border-radius: 100px; */
+/* opacity: 0.5; */
 /* } */
 
 .project {
@@ -89,20 +90,18 @@
   scrollbar-width: none;
 }
 
-#proj{
+#proj {
   padding-top: 8rem;
-
 }
-#projDiv{
+#projDiv {
   /* min-width: 100vw; */
   overflow: scroll;
   scrollbar-width: none;
   scroll-behavior: smooth;
 }
-#github{
+#github {
   margin-left: 1rem;
   text-decoration: none;
-
 }
 /* #redirectbtns{
   display: flex;
@@ -112,13 +111,12 @@
 } */
 
 @media (max-width: 768px) {
- 
   .project:hover {
     transform: scale(1.02); /* Slightly scale up on hover */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
     cursor: pointer;
   }
-  #projDiv{
+  #projDiv {
     padding-right: 0;
   }
 }

@@ -82,10 +82,15 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   id="viewProject"
+                  className="hovEff"
                 >
                   View Project
                 </a>
-                <a onClick={() => handleShowModal(project.image)} id="modal">
+                <a
+                  onClick={() => handleShowModal(project.image)}
+                  id="modal"
+                  className="hovEff"
+                >
                   Screenshot
                 </a>
                 <a

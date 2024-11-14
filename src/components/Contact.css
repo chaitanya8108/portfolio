@@ -69,11 +69,15 @@ textarea:hover {
   min-width: 10rem;
   align-self: center;
   margin-top: 1rem;
+  transition: all ease-in-out 0.4s;
 }
 
 #sendMsg:hover {
   background-color: rgb(255, 152, 100);
   color: black;
+  /* border: none; */
+  outline: none;
+  outline-style: none;
 }
 
 #nameDiv {

@@ -32,17 +32,17 @@ const Navbar = () => {
       <ul>
         <li>
           <Link to="home" smooth={true} duration={50}>
-            <Button className="navbtn">Home</Button>
+            <Button className="navbtn hovEffect">Home</Button>
           </Link>
         </li>
         <li>
           <Link to="projects" smooth={true} duration={50}>
-            <Button className="navbtn">Projects</Button>
+            <Button className="navbtn hovEffect">Projects</Button>
           </Link>
         </li>
         <li>
           <Link to="contact" smooth={true} duration={50}>
-            <Button className="navbtn">Contacts</Button>
+            <Button className="navbtn hovEffect">Contacts</Button>
           </Link>
         </li>
       </ul>

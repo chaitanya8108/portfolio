@@ -80,6 +80,10 @@ nav.active .menu-toggle span:nth-child(3) {
   transform: rotate(-45deg) translateY(-9px); /* Adjusted position for a better cross */
 }
 
+.hovEffect {
+  transition: all ease-in-out 0.4s;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   nav {
