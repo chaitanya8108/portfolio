@@ -146,6 +146,7 @@ const Contact = () => {
           Send
         </Button>
         {/* Show status message */}
+        <br />
         {status && (
           <Alert variant={status.includes("Error") ? "danger" : "success"}>
             {status}
