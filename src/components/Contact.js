@@ -25,7 +25,7 @@ const Contact = () => {
 
     try {
       // Send POST request to Vercel serverless function
-      const response = await fetch("/api/send-message", {
+      const response = await fetch("myportfolio-flax-three.vercel.app/api/send-message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
