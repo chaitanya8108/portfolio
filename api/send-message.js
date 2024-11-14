@@ -24,7 +24,7 @@ export default async (req, res) => {
     const mailOptions = {
       from: email, // From the email provided by the user
       to: process.env.EMAIL_USER, // The email where the message should be sent
-      subject: `New Contact from ${name}`,
+      subject: `New Message from ${name}...`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     };
 
