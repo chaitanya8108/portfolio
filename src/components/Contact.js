@@ -101,13 +101,6 @@ const Contact = () => {
         reach out!
       </p>
 
-      {/* Show status message */}
-      {status && (
-        <Alert variant={status.includes("Error") ? "danger" : "success"}>
-          {status}
-        </Alert>
-      )}
-
       <form onSubmit={handleSubmit} className="row-gap-0">
         <div className="name d-flex flex-column" id="nameDiv">
           <label htmlFor="name">Name:</label>
@@ -152,6 +145,12 @@ const Contact = () => {
         <Button variant="dark" id="sendMsg" type="submit">
           Send
         </Button>
+        {/* Show status message */}
+        {status && (
+          <Alert variant={status.includes("Error") ? "danger" : "success"}>
+            {status}
+          </Alert>
+        )}
       </form>
     </section>
   );
