@@ -3,7 +3,7 @@ import "./Projects.css";
 import Modal from "react-bootstrap/Modal";
 import { GoArrowUpRight } from "react-icons/go";
 import bg from "../assets/proj.jpeg";
-import { Spinner } from "react-bootstrap";
+import { Spinn } from "./Spinn";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
