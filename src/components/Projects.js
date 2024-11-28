@@ -3,7 +3,7 @@ import "./Projects.css";
 import Modal from "react-bootstrap/Modal";
 import { GoArrowUpRight } from "react-icons/go";
 import bg from "../assets/proj.jpeg";
-import Spinn from "./Spinn";
+import { Spinner } from "react-bootstrap";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -79,7 +79,7 @@ const Projects = () => {
         <div className="align-self-center px-3" id="projDiv">
           {projects.map((project, index) => (
             <div key={index} className="project">
-              {loading && <Spinn />}
+              {loading && <Spinner />}
               <h3>{project.title}</h3>
               <p className="text-start">{project.description}</p>
               <div id="redirectbtns">
