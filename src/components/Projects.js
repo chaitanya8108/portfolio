@@ -77,45 +77,45 @@ const Projects = () => {
       >
         <h1 className="header align-self-center">Projects</h1>
         <div className="align-self-center px-3" id="projDiv">
-          {projects.map((project, index) => (
-            <div key={index} className="project">
-              {loading ? (
-                <Spinn />
-              ) : (
-                <>
-                  <h3>{project.title}</h3>
-                  <p className="text-start">{project.description}</p>
-                  <div id="redirectbtns">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      id="viewProject"
-                      className="hovEff"
-                    >
-                      View Project
-                    </a>
-                    <a
-                      onClick={() => handleShowModal(project.image)}
-                      id="modal"
-                      className="hovEff"
-                    >
-                      Screenshot
-                    </a>
-                    <a
-                      href={project.gitHub}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      id="github"
-                    >
-                      GitHub
-                      <GoArrowUpRight />
-                    </a>
-                  </div>
-                </>
-              )}
-            </div>
-          ))}
+          {loading ? (
+            // Show spinner when loading
+            <Spinn />
+          ) : (
+            // Show projects when loading is complete
+            projects.map((project, index) => (
+              <div key={index} className="project">
+                <h3>{project.title}</h3>
+                <p className="text-start">{project.description}</p>
+                <div id="redirectbtns">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id="viewProject"
+                    className="hovEff"
+                  >
+                    View Project
+                  </a>
+                  <a
+                    onClick={() => handleShowModal(project.image)}
+                    id="modal"
+                    className="hovEff"
+                  >
+                    Screenshot
+                  </a>
+                  <a
+                    href={project.gitHub}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id="github"
+                  >
+                    GitHub
+                    <GoArrowUpRight />
+                  </a>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </section>
 
@@ -134,7 +134,7 @@ const Projects = () => {
         <Modal.Body className="text-center img-fluid bg-black" id="modalBody">
           {selectedImage && (
             <img
-              src={`https://<your-vercel-app-name>.vercel.app${selectedImage}`} // Updated to use the deployed URL
+              src={`https://<your-vercel-app-name>.vercel.app${selectedImage}`}
               alt="Project Screenshot"
             />
           )}
