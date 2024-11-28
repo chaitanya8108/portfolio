@@ -79,36 +79,41 @@ const Projects = () => {
         <div className="align-self-center px-3" id="projDiv">
           {projects.map((project, index) => (
             <div key={index} className="project">
-              {loading && <Spinner />}
-              <h3>{project.title}</h3>
-              <p className="text-start">{project.description}</p>
-              <div id="redirectbtns">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="viewProject"
-                  className="hovEff"
-                >
-                  View Project
-                </a>
-                <a
-                  onClick={() => handleShowModal(project.image)}
-                  id="modal"
-                  className="hovEff"
-                >
-                  Screenshot
-                </a>
-                <a
-                  href={project.gitHub}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="github"
-                >
-                  GitHub
-                  <GoArrowUpRight />
-                </a>
-              </div>
+              {loading ? (
+                <Spinn />
+              ) : (
+                <>
+                  <h3>{project.title}</h3>
+                  <p className="text-start">{project.description}</p>
+                  <div id="redirectbtns">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id="viewProject"
+                      className="hovEff"
+                    >
+                      View Project
+                    </a>
+                    <a
+                      onClick={() => handleShowModal(project.image)}
+                      id="modal"
+                      className="hovEff"
+                    >
+                      Screenshot
+                    </a>
+                    <a
+                      href={project.gitHub}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      id="github"
+                    >
+                      GitHub
+                      <GoArrowUpRight />
+                    </a>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>
