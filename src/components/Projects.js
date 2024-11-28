@@ -3,11 +3,13 @@ import "./Projects.css";
 import Modal from "react-bootstrap/Modal";
 import { GoArrowUpRight } from "react-icons/go";
 import bg from "../assets/proj.jpeg";
+import Spinn from "./Spinn";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [lgShow, setLgShow] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const projRef = useRef(null);
 
   useEffect(() => {
@@ -38,13 +40,16 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
+        setLoading(true);
         const response = await fetch(
           "https://myportfolio-flax-three.vercel.app/api/projects"
         );
         const data = await response.json();
         console.log(data);
         setProjects(data);
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         console.error("Error fetching projects:", error);
       }
     };
@@ -74,6 +79,7 @@ const Projects = () => {
         <div className="align-self-center px-3" id="projDiv">
           {projects.map((project, index) => (
             <div key={index} className="project">
+              {loading && <Spinn />}
               <h3>{project.title}</h3>
               <p className="text-start">{project.description}</p>
               <div id="redirectbtns">
